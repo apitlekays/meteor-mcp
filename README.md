@@ -54,15 +54,46 @@ Plus **15 code example topics** and **10 architectural guides**.
 
 ## Quick Start
 
-### Remote server (Docker)
+### Docker Hub (recommended)
+
+```bash
+docker pull dochafizhanif/meteor-mcp
+docker run -d -p 8080:8080 dochafizhanif/meteor-mcp
+```
+
+The server runs at `http://localhost:8080/mcp`.
+
+**Custom port:** The container listens on port `8080` internally. If that port is already in use on your machine, map it to any available port:
+
+```bash
+docker run -d -p 3000:8080 dochafizhanif/meteor-mcp   # available on port 3000
+docker run -d -p 9090:8080 dochafizhanif/meteor-mcp   # available on port 9090
+```
+
+The MCP endpoint will then be at `http://localhost:<your-port>/mcp`.
+
+### Portainer
+
+1. Go to **Containers** → click **Add container**
+2. Fill in the following fields:
+   - **Name:** `meteor-mcp` (or any name you prefer)
+   - **Image:** `dochafizhanif/meteor-mcp:latest`
+3. Under **Network ports configuration**, click **publish a new network port** and enter:
+   - **host:** `8080` (or any available port on your machine, e.g. `3000`, `9090`)
+   - **container:** `8080` (always `8080` — this is the port the server listens on inside the container)
+4. Click **Deploy the container**
+
+The MCP endpoint will be at `http://YOUR_SERVER_IP:<host-port>/mcp`.
+
+For example, if you set the host port to `9090`, the endpoint is `http://YOUR_SERVER_IP:9090/mcp`.
+
+### Build from source (Docker)
 
 ```bash
 git clone https://github.com/apitlekays/meteor-mcp.git
 cd meteor-mcp
 docker compose up -d --build
 ```
-
-The server runs on port `8080` at `/mcp`.
 
 ### Local server (stdio)
 
