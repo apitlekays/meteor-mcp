@@ -54,7 +54,17 @@ Plus **15 code example topics** and **10 architectural guides**.
 
 ## Quick Start
 
-### Docker Hub (recommended)
+### Public instance (fastest)
+
+A public instance is available — no setup required:
+
+```
+https://meteor-mcp.sembilan.cloud/mcp
+```
+
+Add it to your MCP client and start using it immediately.
+
+### Docker Hub (recommended for self-hosting)
 
 ```bash
 docker pull dochafizhanif/meteor-mcp
@@ -112,6 +122,18 @@ Add to your MCP settings:
 {
   "mcpServers": {
     "meteor": {
+      "url": "https://meteor-mcp.sembilan.cloud/mcp"
+    }
+  }
+}
+```
+
+Or if you're self-hosting:
+
+```json
+{
+  "mcpServers": {
+    "meteor": {
       "url": "http://YOUR_SERVER_IP:8080/mcp"
     }
   }
@@ -136,7 +158,7 @@ For local stdio mode:
 Go to **Settings > MCP Servers > Add Server** and enter the URL:
 
 ```
-http://YOUR_SERVER_IP:8080/mcp
+https://meteor-mcp.sembilan.cloud/mcp
 ```
 
 ## Project Structure
